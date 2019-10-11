@@ -1,0 +1,14 @@
+// Inicializar o módulo.
+let nomeApp = 'EscolaWebApp';
+let modulos = [];
+var app = angular.module(nomeApp, modulos);
+
+app.controller('HomeController', homeController);
+
+var cursoController = function($scope){
+  $scope.nome= "";
+  $scope.turno = "";
+  $scope.fk_id_turno = "";
+}
+
+app.controller('CursoController', cursoController);
