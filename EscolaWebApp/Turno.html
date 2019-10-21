@@ -1,0 +1,20 @@
+<main ng-controller="TurnoController" class="forms">
+      <form class="formturno formulario" action="http://localhost:5000/turno" method="POST" name="turnoform">
+        <div class="form-group">
+          <label for="nome">Turno: </label>
+          <input type="text" class="form-control" name="nome" ng-model="nome" placeholder="Nome" ng-required="true" ng-minlength="5"/>
+
+          <!-- ng-messages | campo nome | 1st -->
+          <div ng-messages="turnoform.nome.$error" ng-if='turnoform.nome.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo nome!
+      			</div>
+      			<div ng-message="minlength" class="alert alert-info">
+      				O campo nome deve ter no mínimo 5 caracteres.
+      			</div>
+      		</div>
+        </div>
+        <button ng-click="teste()" ng-disabled="turnoform.$invalid" type="button" class="btn btn-outline-light btn-block">Cadastrar</button>
+        <h1>{{mensagem2}}</h1>
+      </form>
+    </main>
