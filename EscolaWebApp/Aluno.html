@@ -1,28 +1,80 @@
-<!DOCTYPE html>
-<html >
-  <head>
+<main ng-controller="AlunoController" class="forms">
+      <form class="formaluno formulario" action="http://localhost:5000/aluno" method="POST" name="alunoform">
+        <div class="form-group">
+          <label for="nome">Nome: </label>
+          <input type="text" class="form-control" name="nome" ng-model="aluno.nome" placeholder="Nome" ng-required="true" ng-minlength="10"/>
 
-    <title>Pagina de cadastro</title>
-  </head>
-  <body>
-    <main>
-      <form action="http://localhost:5000/aluno" method="POST">
+          <!-- ng-messages | campo nome | 1st -->
+          <div ng-messages="alunoform.nome.$error" ng-if='alunoform.nome.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo nome!
+      			</div>
+      			<div ng-message="minlength" class="alert alert-info">
+      				O campo nome deve ter no mínimo 10 caracteres.
+      			</div>
+      		</div>
+        </div>
+        <div class="form-group">
+          <label for="matricula">Matrícula: </label>
+          <input type="text" class="form-control" name="matricula" ng-model="aluno.matricula" placeholder="Matrícula" ng-required="true"/>
 
-        <label for="Nome">Nome</label>
-        <input type="text" name="nome" /><br>
+          <!-- ng-messages | campo matrícula | 2nd -->
+          <div ng-messages="alunoform.matricula.$error" ng-if='alunoform.matricula.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo matrícula!
+      			</div>
+      		</div>
+        </div>
+        <div class="form-group">
+          <label for="cpf">CPF: </label>
+          <input type="text" class="form-control" name="cpf" ng-model="aluno.cpf" placeholder="Cpf" ng-required="true" ng-pattern="/^\d{3}.\d{3}.\d{3}-\d{2}$/">
 
-        <label for="Nascimento">Nascimento</label>
-        <input type="text" name="nascimento"/><br>
+          <!-- ng-messages | campo CPF | 3rd -->
+          <div ng-messages="alunoform.cpf.$error" ng-if='alunoform.cpf.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo CPF!
+      			</div>
+            <div ng-message="pattern" class="alert alert-info">
+      				O formato do campo cpf deve ser "xxx.xxx.xxx-xx".
+      			</div>
+      		</div>
+        </div>
+        <div class="form-group">
+          <label for="nascimento">Nascimento: </label>
+          <input type="text" class="form-control" name="nascimento" ng-model="aluno.nascimento" placeholder="Nascimento" ng-required="true" ng-pattern="/^\d{4}-\d{2}-\d{2}$/">
 
-        <label for="Matricula">Matrícula</label>
-        <input type="text" name="matricula"/><br>
+          <!-- ng-messages | campo nascimento | 4th -->
+          <div ng-messages="alunoform.nascimento.$error" ng-if='alunoform.nascimento.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo nascimento!
+      			</div>
+      			<div ng-message="pattern" class="alert alert-info">
+      				O formato do campo nascimento deve ser "aaaa/mm/dd".
+      			</div>
+      		</div>
+        </div>
+        <div class="form-group">
+          <label for="id_endereco">ID Endereço: </label>
+          <input type="text" class="form-control" name="id_endereco" ng-model="aluno.id_endereco" placeholder="ID endereço" ng-required="true">
 
-        <label for="CPF">CPF</label>
-        <input type="text" name="cpf"/><br>
+          <!-- ng-messages | campo ID Endereço | 5th -->
+          <div ng-messages="alunoform.id_endereco.$error" ng-if='alunoform.id_endereco.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo ID Endereço!
+      			</div>
+      		</div>
+        </div>
+        <div class="form-group">
+          <label for="id_curso">ID Curso: </label>
+          <input type="text" class="form-control" name="id_curso" ng-model="aluno.id_curso" placeholder="ID curso" ng-required="true">
 
-        <input type="submit" value="CADASTRAR" ><br>
+          <!-- ng-messages | campo ID Curso | 6th -->
+          <div ng-messages="alunoform.id_curso.$error" ng-if='alunoform.id_curso.$dirty'>
+      			<div ng-message="required" class="alert alert-danger">
+      				Por favor, preencha o campo ID Curso!
+      			</div>
+      		</div>
+        </div>
+        <button ng-click="cadastrar()" type="button" name="Cadastrar" value="Cadastrar" class="btn btn-outline-light btn-block" ng-disabled="alunoform.$invalid">Cadastrar</button><br>
       </form>
     </main>
-
-  </body>
-</html>
