@@ -8,7 +8,6 @@ app.controller('HomeController', homeController);
 var disciplinaController = function($scope){
   $scope.nome = "";
   $scope.id = "";
-  $scope.fk_id_professor = "";
 }
 
 app.controller('DisciplinaController', disciplinaController);
