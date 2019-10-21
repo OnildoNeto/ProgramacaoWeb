@@ -1,0 +1,64 @@
+<main ng-controller="EnderecoController" class="forms">
+      <form class="formendereco formulario" action="http://localhost:5000/endereco" method="POST" name="enderecoform" ng-required="true">
+        <div class="form-group">
+          <label for="nome">Logradouro: </label>
+          <input type="text" class="form-control" name="logradouro" ng-model="endereco.logradouro" placeholder="Logradouro" ng-required="true" ng-minlength="10"/>
+
+          <!-- ng-messages | campo logradouro | 1st -->
+          <div ng-messages="enderecoform.logradouro.$error" ng-if='enderecoform.logradouro.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo logradouro!
+            </div>
+            <div ng-message="minlength" class="alert alert-info">
+              O campo nome deve ter no mínimo 10 caracteres.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="complemento">Complemento: </label>
+          <input type="text" class="form-control" name="complemento" ng-model="endereco.complemento" placeholder="Complemento" ng-required="true">
+
+          <!-- ng-messages | campo complemento | 2nd -->
+          <div ng-messages="enderecoform.complemento.$error" ng-if='enderecoform.complemento.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo complemento!
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bairro">Bairro: </label>
+          <input type="text" class="form-control" name="bairro" ng-model="endereco.bairro" placeholder="Bairro" ng-required="true">
+
+          <!-- ng-messages | campo bairro | 3rd -->
+          <div ng-messages="enderecoform.bairro.$error" ng-if='enderecoform.bairro.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo bairro!
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cep">Cep: </label>
+          <input type="text" class="form-control" name="cep" ng-model="endereco.cep" placeholder="Cep" ng-required="true">
+
+          <!-- ng-messages | campo cep | 4th -->
+          <div ng-messages="enderecoform.cep.$error" ng-if='enderecoform.cep.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo cep!
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="numero">Número: </label>
+          <input type="text" class="form-control" name="numero" ng-model="endereco.numero" placeholder="Número" ng-required="true">
+
+          <!-- ng-messages | campo numero | 5th -->
+          <div ng-messages="enderecoform.numero.$error" ng-if='enderecoform.numero.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo número!
+            </div>
+          </div>
+        </div>
+        <button ng-click="cadastrar()" ng-disabled="enderecoform.$invalid" type="button" name="Cadastrar" value="Cadastrar" class="btn btn-outline-light btn-block">Cadastrar</button>
+
+      </form>
+    </main>
