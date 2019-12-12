@@ -1,64 +1,56 @@
-</script>
 <script type="text/javascript">
-  let nome = "Ítalo Santos";
+  let nome = "Emanuel";
   console.log(nome);
 
   let nota = 10;
-
-  if (nota >= 7) {
+  if(nota>=7){
     console.log("Aprovado");
-  } else {
+  } else{
     console.log("Reprovado");
   }
 
-  let i = 0;
-  while (i <= 10) {
+  let i=0;
+  while(i<=10){
     console.log(i);
     i++;
   }
 
-  for (i=0; i <=10; i++){
+  for(let i=0; i<=10; i++){
     console.log(i);
   }
 
-  let nomes = ["João", "Pedro", "Chico"];
-
-  for (nome of nomes){
-    console.log(nome);
+  let nomes = ["Jesus", "Maria", "José"];
+  for(let item of nomes){
+    console.log(item);
   }
 
-  for (posicao in nomes){
-    console.log(nomes[posicao]);
-    console.log(posicao);
+  function soma(n1, n2){
+    return n1+n2;
   }
 
-  function somar(v1,v2){
-    let resultado = v1+v2;
-    return resultado;
-  }
+  console.log(soma(2,5));
 
-  let exibirValor = function(valor) {
+  let exibirValor = function(valor){
     console.log(valor);
   }
 
-  let r = somar(5,8);
-  console.log(r);
+  let resultado = soma(5,8);
+  exibirValor(resultado);
 
   let aluno = {
     nome:"Maria da Paz",
-    matricula:"210945711013",
-    cpf:"100.200.300-50",
+    matricula:"201916510009",
+    cpf:"114.998.076.55",
+    nascimento:"1978-06-24",
     endereco:{
       logradouro:"Buraco do Afonso",
-      complemento:"Perto do chapéu",
-      cep:"58230-000",
-      numero:"64",
-      bairro:"Centro"
+      complemento:"Perto do Chapéu Cagado",
+      bairro:"Centro",
+      cep:"58245-000",
+      numero:"24"
     }
-  };
+  }
 
-  console.log(aluno.nome);
-  console.log(aluno.endereco.complemento);
-
+  console.log(aluno.endereco);
 
 </script>

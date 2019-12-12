@@ -1,34 +1,28 @@
-<form action="http://localhost:5000/turma" method='POST' name="turmaForm">
-            <!-- Nome -->
-            <div class="form-group">
-              <label for='nome'>Nome da turma:</label>
-              <input type='text' ng-model='turma' name='turma.nome' class="form-control" placeholder="Nome" ng-required="true" ng-minlength="5" ng-maxlength="15">
-              <div ng-show="turmaForm.nome.$error.required && turmaForm.nome.$dirty" class="alert alert-danger">
-                Preencha o campo turma
-              </div>
-              <div ng-show="turmaForm.nome.$error.minlength && turmaForm.nome.$dirty" class="alert alert-danger">
-                O nome da turma deve ficar com no mínimo 8 caracteres
-              </div>
-              <div ng-show="turmaForm.nome.$error.maxlength && turmaForm.nome.$dirty" class="alert alert-danger">
-                O nome da turma deve ficar com no máximo 15 caracteres
-              </div>
+<form class="formulario" action="http://localhost:5000/turma" method="POST" name="turmaform">
+        <div class="form-group">
+          <label for="nome">Nome da Turma: </label>
+          <input type="text" class="form-control" name="nome" ng-model="turma.nome" placeholder="Nome" ng-required="true" ng-minlength="5" />
+
+          <!-- ng-messages | campo nome | 1st -->
+          <div ng-messages="turmaform.nome.$error" ng-if='turmaform.nome.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo nome!
             </div>
-
-            <div class="form-group">
-              <label for='nome'>Nome da turma:</label>
-              <input type='text' ng-model='turma' name='turma.nome' class="form-control" placeholder="Nome" ng-required="true" ng-minlength="5" ng-maxlength="15">
-              <div ng-show="turmaForm.nome.$error.required && turmaForm.nome.$dirty" class="alert alert-danger">
-                Preencha o campo turma
-              </div>
-              <div ng-show="turmaForm.nome.$error.minlength && turmaForm.nome.$dirty" class="alert alert-danger">
-                O nome da turma deve ficar com no mínimo 8 caracteres
-              </div>
-              <div ng-show="turmaForm.nome.$error.maxlength && turmaForm.nome.$dirty" class="alert alert-danger">
-                O nome da turma deve ficar com no máximo 15 caracteres
-              </div>
+            <div ng-message="minlength" class="alert alert-info">
+              O campo nome deve ter no mínimo 5 caracteres.
             </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_curso">Curso: </label>
+          <input type="text" class="form-control" name="id_curso" ng-model="turma.id_curso" placeholder="ID curso" ng-required="true">
 
-            <button type="submit" class="btn btn-secondary btn-lg btn-block">Cadastrar</button>
-
-
-  </form>
+          <!-- ng-messages | campo ID curso | 2nd -->
+          <div ng-messages="turmaform.id_curso.$error" ng-if='turmaform.id_curso.$dirty'>
+            <div ng-message="required" class="alert alert-danger">
+              Por favor, preencha o campo ID curso!
+            </div>
+          </div>
+        </div>
+        <button ng-click="cadastrar()" type="button" name="Cadastrar" value="Cadastrar" class="btn btn-outline-light btn-block" ng-disabled="turmaform.$invalid">Cadastrar</button><br>
+      </form>
